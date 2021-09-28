@@ -23,6 +23,132 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/Services/authentication.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/Services/authentication.service.ts ***!
+  \****************************************************/
+/*! exports provided: AuthenticationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationService", function() { return AuthenticationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+
+
+class AuthenticationService {
+    constructor(http, router) {
+        this.http = http;
+        this.router = router;
+    }
+    saveToken(token) {
+        localStorage.setItem('userToken', token);
+        this.token = token;
+    }
+    getToken() {
+        if (!this.token) {
+            this.token = localStorage.getItem('userToken');
+        }
+        return this.token;
+    }
+    getUserDetails() {
+        const token = this.getToken();
+        let payload;
+        if (token) {
+            payload = token.split('.')[1];
+            // console.log(payload)
+            payload = window.atob(payload);
+            // console.log(payload)
+            return JSON.parse(payload);
+        }
+        else {
+            return null;
+        }
+    }
+    isLoggedIn() {
+        const user = this.getUserDetails();
+        if (user) {
+            return user.exp > Date.now() / 1000;
+            // return true;
+        }
+        else {
+            return false;
+        }
+    }
+    // registration for a publisher
+    register(user) {
+        const base = this.http.post('https://techflare.herokuapp.com/users/publisherRegister', user);
+        const request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((data) => {
+            if (data.token) {
+                this.saveToken(data.token);
+            }
+            return data;
+        }));
+        return request;
+    }
+    // login for a user
+    login(user) {
+        const base = this.http.post('https://techflare.herokuapp.com/users/login', user);
+        const request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((data) => {
+            if (data.token) {
+                this.saveToken(data.token);
+            }
+            return data;
+        }));
+        return request;
+    }
+    // getting profile details
+    profile() {
+        return this.http.get('https://techflare.herokuapp.com/users/profile', {
+            headers: { authorization: `${this.getToken()}` }
+        });
+    }
+    // checking is user is an admin
+    isAdmin() {
+        const user = this.getUserDetails();
+        if (user.role == "admin") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    // checking is user is a publisher
+    isPublisher() {
+        const user = this.getUserDetails();
+        if (user.role == "publisher") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    // checking is user is a reader
+    isReader() {
+        const user = this.getUserDetails();
+        if (user.role == "reader") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+AuthenticationService.ɵfac = function AuthenticationService_Factory(t) { return new (t || AuthenticationService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"])); };
+AuthenticationService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: AuthenticationService, factory: AuthenticationService.ɵfac });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AuthenticationService, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }]; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/Services/testing.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/Services/testing.service.ts ***!
@@ -47,7 +173,7 @@ class TestingService {
     }
     show() {
         console.log("vvvvvvvvvvvv");
-        return this.http.get("https://techflare.herokuapp.com", { responseType: 'text' });
+        return this.http.get("https://techflare.herokuapp.com");
     }
 }
 TestingService.ɵfac = function TestingService_Factory(t) { return new (t || TestingService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
@@ -164,17 +290,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _Services_testing_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Services/testing.service */ "./src/app/Services/testing.service.ts");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Services/authentication.service */ "./src/app/Services/authentication.service.ts");
 
 
 
 
+
+// Services
 
 
 
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_5__["TestingService"]], imports: [[
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_5__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
@@ -193,7 +322,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
                 ],
-                providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_5__["TestingService"]],
+                providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_5__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
             }]
     }], null, null); })();
