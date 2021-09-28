@@ -247,6 +247,7 @@ class AppComponent {
     ngOnInit() {
         // console.log(this.auth.isLoggedIn());
         this.test.show().subscribe(posts => {
+            console.log('aaaaaaaaa');
             this.postsDetails = posts;
         }, err => {
             console.log(err);
