@@ -16,6 +16,7 @@ export class AppComponent {
   ngOnInit(): void {
     // console.log(this.auth.isLoggedIn());
     this.test.show().subscribe(posts => {
+      console.log('aaaaaaaaa')
       this.postsDetails = posts
     },
     err => {
