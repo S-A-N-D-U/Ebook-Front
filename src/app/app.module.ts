@@ -7,16 +7,26 @@ import { AppComponent } from './app.component';
 
 // Services
 import { TestingService} from './Services/testing.service';
-import { AuthenticationService } from './Services/authentication.service'
+import { AuthenticationService } from './Services/authentication.service';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [TestingService , AuthenticationService],
