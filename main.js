@@ -173,7 +173,7 @@ class TestingService {
     }
     show() {
         console.log("vvvvvvvvvvvv");
-        return this.http.get("https://techflare.herokuapp.com");
+        return this.http.get("https://techflare.herokuapp.com", { responseType: 'text' });
     }
 }
 TestingService.ɵfac = function TestingService_Factory(t) { return new (t || TestingService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
