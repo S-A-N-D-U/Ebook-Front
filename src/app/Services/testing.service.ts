@@ -14,7 +14,7 @@ export class TestingService {
   
   show():Observable<any> {
     console.log("vvvvvvvvvvvv")
-    return this.http.get("https://techflare.herokuapp.com")
+    return this.http.get("https://techflare.herokuapp.com" , {responseType: 'text'})
 
   }
 
