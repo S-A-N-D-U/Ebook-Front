@@ -8,19 +8,20 @@ import { TestingService } from './Services/testing.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test-app';
-  postsDetails: any;
+  title = 'Fantacy Reading';
+  // postsDetails: any;
 
-  constructor (private router: Router , private test: TestingService) { }
+  // constructor (private router: Router , private test: TestingService) { }
   
-  ngOnInit(): void {
-    // console.log(this.auth.isLoggedIn());
-    this.test.show().subscribe(posts => {
-      console.log('aaaaaaaaa')
-      this.postsDetails = posts
-    },
-    err => {
-      console.log(err)
-    })
-  }
+  
+  // ngOnInit(): void {
+  //   // console.log(this.auth.isLoggedIn());
+  //   this.test.show().subscribe(posts => {
+  //     console.log('aaaaaaaaa')
+  //     this.postsDetails = posts
+  //   },
+  //   err => {
+  //     console.log(err)
+  //   })
+  // }
 }
