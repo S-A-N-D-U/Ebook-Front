@@ -12,13 +12,15 @@ import { ValidationsService } from './Services/validations.service'
 
 // components
 import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component'
+import { RegisterComponent } from './Components/register/register.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
