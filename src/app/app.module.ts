@@ -4,6 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // Services
 import { TestingService } from './Services/testing.service';
@@ -29,7 +30,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component'
     ToastrModule.forRoot() 
 
   ],
-  providers: [TestingService , AuthenticationService , ValidationsService],
+  providers: [TestingService , AuthenticationService , ValidationsService , {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
