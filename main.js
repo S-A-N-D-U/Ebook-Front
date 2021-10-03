@@ -840,12 +840,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _Services_testing_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Services/testing.service */ "./src/app/Services/testing.service.ts");
-/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Services/authentication.service */ "./src/app/Services/authentication.service.ts");
-/* harmony import */ var _Services_validations_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Services/validations.service */ "./src/app/Services/validations.service.ts");
-/* harmony import */ var _Components_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/login/login.component */ "./src/app/Components/login/login.component.ts");
-/* harmony import */ var _Components_register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/register/register.component */ "./src/app/Components/register/register.component.ts");
-/* harmony import */ var _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/dashboard/dashboard.component */ "./src/app/Components/dashboard/dashboard.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _Services_testing_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Services/testing.service */ "./src/app/Services/testing.service.ts");
+/* harmony import */ var _Services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Services/authentication.service */ "./src/app/Services/authentication.service.ts");
+/* harmony import */ var _Services_validations_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Services/validations.service */ "./src/app/Services/validations.service.ts");
+/* harmony import */ var _Components_login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/login/login.component */ "./src/app/Components/login/login.component.ts");
+/* harmony import */ var _Components_register_register_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/register/register.component */ "./src/app/Components/register/register.component.ts");
+/* harmony import */ var _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/dashboard/dashboard.component */ "./src/app/Components/dashboard/dashboard.component.ts");
+
 
 
 
@@ -865,16 +867,16 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_6__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_8__["ValidationsService"]], imports: [[
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_7__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_9__["ValidationsService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_6__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_6__["HashLocationStrategy"] }], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrModule"].forRoot()
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-        _Components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-        _Components_register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
-        _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _Components_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+        _Components_register_register_component__WEBPACK_IMPORTED_MODULE_11__["RegisterComponent"],
+        _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__["DashboardComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
@@ -882,9 +884,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         args: [{
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-                    _Components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                    _Components_register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
-                    _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_11__["DashboardComponent"]
+                    _Components_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                    _Components_register_register_component__WEBPACK_IMPORTED_MODULE_11__["RegisterComponent"],
+                    _Components_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_12__["DashboardComponent"]
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -892,7 +894,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                     ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrModule"].forRoot()
                 ],
-                providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_6__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_8__["ValidationsService"]],
+                providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_7__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_9__["ValidationsService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_6__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_6__["HashLocationStrategy"] }],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
             }]
     }], null, null); })();
