@@ -21,8 +21,8 @@ export class RegisterComponent implements OnInit {
   // role:string
   role = [
     {id: 1, name: "reader"},
-    {id: 2, name: "pubisher"},
-    {id: 3, name: "admin"}
+    {id: 2, name: "pubisher"}
+    
   
  ];
  selectedValue = "1";
