@@ -79,7 +79,8 @@ export class AuthenticationService {
 
   // registration for a publisher
   public register (user: any): Observable<any> {
-    const base = this.http.post('https://techflare.herokuapp.com/users/publisherRegister',user)
+    console.log("bbbbbbbbbbbbbbbbbbbb")
+    const base = this.http.post('https://techflare.herokuapp.com/users/register',user)
 
     const request = base.pipe(
       map((data: TokenResponse) => {

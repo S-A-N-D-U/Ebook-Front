@@ -3,6 +3,7 @@ import { from } from 'rxjs'
 import { AuthenticationService , TokenPayLoad } from '../../Services/authentication.service'
 import { Router } from '@angular/router'
 
+
 import { ValidationsService } from 'src/app/Services/validations.service'
 import { ToastrService } from 'ngx-toastr'; 
 
@@ -16,9 +17,16 @@ export class RegisterComponent implements OnInit {
   firstName:string
   lastName:string
   email:string
-  telephone:string
   password:string
-  role:string
+  // role:string
+  role = [
+    {id: 1, name: "reader"},
+    {id: 2, name: "pubisher"},
+    {id: 3, name: "admin"}
+  
+ ];
+ selectedValue = "1";
+
 
   constructor(public auth: AuthenticationService , private router: Router, private val:ValidationsService,private toastr: ToastrService) { }
 
@@ -27,11 +35,10 @@ export class RegisterComponent implements OnInit {
       firstName: this.firstName,
       lastName: this.lastName,
       email:this.email,
-      telephone:this.telephone,
       password:this.password,
-      role: this.role
+      role: this.selectedValue
     }
-
+// console.log(credentials)
 
 
     if(!this.val.validatingRegister(credentials)){
@@ -64,21 +71,23 @@ export class RegisterComponent implements OnInit {
       return false
     }
 
-    if(!this.val.validatingTelephone(credentials.telephone)){
-      console.log(credentials.telephone)
-      console.log('invalid telephone number')
-      this.toastr.error("*** Please enter valid telephone number ***","",{
-        timeOut: 3000,
-        positionClass: 'toast-top-full-width',
+    // if(!this.val.validatingTelephone(credentials.telephone)){
+    //   console.log(credentials.telephone)
+    //   console.log('invalid telephone number')
+    //   this.toastr.error("*** Please enter valid telephone number ***","",{
+    //     timeOut: 3000,
+    //     positionClass: 'toast-top-full-width',
          
-      });
+    //   });
       
-      return false
-    }
+    //   return false
+    // }
 
 
 
     this.auth.register(credentials).subscribe(user=> {
+      console.log(user + "vvvvvvvvvvvvvvvv")
+      
       if(user.success){
         this.router.navigateByUrl('/login')
         this.toastr.success("registered successfully ","",{
