@@ -461,8 +461,7 @@ class RegisterComponent {
         // role:string
         this.role = [
             { id: 1, name: "reader" },
-            { id: 2, name: "pubisher" },
-            { id: 3, name: "admin" }
+            { id: 2, name: "pubisher" }
         ];
         this.selectedValue = "1";
     }
