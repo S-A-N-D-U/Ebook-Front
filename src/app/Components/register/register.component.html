@@ -1,1 +1,73 @@
-<p>register works !</p>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head> -->
+
+<body>
+    <section class="form my-4 mx-5">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <img src="assets/images/register.jpg" alt="hello" class="img-fluid">
+                </div>
+                <div class="col-lg-6 px-5 pt-5">
+                    <form (submit)="register()">
+
+                        <h2 class="heading1">Sign Up</h2>
+                        <div class="form-row">
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" 
+                                    placeholder="First Name"  name="firstName" [(ngModel)]="firstName">
+                            </div>
+
+                            <div class="col-lg-9">
+                                <input type="text"  class="form-control"  
+                                    placeholder="Last Name"  name="lastName" [(ngModel)]="lastName">
+                            </div>
+
+                            <div class="col-lg-9">
+                                <input type="email"  class="form-control" 
+                                    placeholder="E mail address" [(ngModel)]="email" name="email" />
+                            </div>
+
+                            <div class="col-lg-9">
+                                <input type="password"  class="form-control" 
+                                    placeholder="Password"  name="password" [(ngModel)]="password" >
+                            </div>
+                            <div class="col-lg-9">
+                                <label for="role"> Sign up as a: </label>
+                                <select class="form-select form-control"   [(ngModel)] ="selectedValue" name="role">
+
+                                    <option *ngFor="let role of role" [value]="role.name">{{role.name}}</option>
+                                </select>
+                            </div>
+
+                             <div class="col-lg-9">
+                                <button type="submit" class="btn btn-dark btn-block ">Register</button>
+                             </div>
+                       
+                            <div class="col-lg-9">
+                                <hr>
+                                <a href="#" class="fa fa-facebook"></a>
+                            </div>
+                            
+                            <div class="col-lg-9">
+                                <p>Already a member? <a href="#">Log in</a></p>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<!-- </html> -->

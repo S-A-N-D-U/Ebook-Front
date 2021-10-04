@@ -9,7 +9,7 @@ export class ValidationsService {
 
   validatingRegister(credentials){
     
-    if (credentials.firstName==undefined || credentials.lastName==undefined || credentials.email==undefined || credentials.password==undefined || credentials.telephone==undefined){
+    if (credentials.firstName==undefined || credentials.lastName==undefined || credentials.email==undefined || credentials.password==undefined ){
       return false
     }else {
       return true
