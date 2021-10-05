@@ -146,5 +146,31 @@ export class AuthenticationService {
     }
   }  
 
+    // getting publisher requests
+    showpublishers():Observable<any> {
+      console.log("vvvvvvvvvvvv")
+      return this.http.get('https://techflare.herokuapp.com/users/approvedPublishers')
+    }
+  
+    // getting all the publisher requests
+    showpublisherReqs():Observable<any> {
+      console.log("vvvvvvvvvvvv")
+      return this.http.get('https://techflare.herokuapp.com/users/getApproved')
+    }
+
+      // remove publishers or reject publisher requests
+  deletePublisher(userId:any):Observable<any> {
+    console.log(userId+" ssssssssss")
+    return this.http.delete('https://techflare.herokuapp.com/users/remove/'+userId)
+  }
+
+  // approve publisher request
+  approvePublisher(userId:any,approve:any):Observable<any> {
+    const dataArr=[]
+    dataArr.push(approve)
+    console.log(dataArr+' eeeeee')
+    return this.http.patch('https://techflare.herokuapp.com/users/approvePublisher/'+userId,dataArr)
+  }
+
 
 }

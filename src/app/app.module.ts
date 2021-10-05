@@ -16,14 +16,20 @@ import { ValidationsService } from './Services/validations.service'
 // components
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { DashboardComponent } from './Components/dashboard/dashboard.component'
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { PublisherListComponent } from './Components/publisher-list/publisher-list.component';
+import { PublisherRequestsComponent } from './Components/publisher-requests/publisher-requests.component';
+import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    PublisherListComponent,
+    PublisherRequestsComponent,
+    ManageAdminsComponent
   ],
   imports: [
     BrowserModule,
