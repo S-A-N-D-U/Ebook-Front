@@ -1,0 +1,56 @@
+<app-dashboard></app-dashboard>
+<div class="container forget-password">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">
+                                <img src="assets/images/addAdmin.png" alt="car-key" >
+                                <h2 class="text-center">Admin Registration</h2>
+                                <!-- <p>You can reset your password here.</p> -->
+                                <form id="register-form" role="form" autocomplete="off" class="form" (submit)="addAdmin()" >
+                                    <!-- <div class="form-group">
+                                        <div class="input-group">
+                                            <select class="form-control" id="sel1">
+                                                <option selected="true" disabled="disabled">Please Select Security Question</option>
+                                                <option>Which is your favorite movie?</option>
+                                                <option>What is your pet's name?</option>
+                                                <option>What is the name of your village?</option>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <input id="forgetAnswer" name="firstName" placeholder="First Name" [(ngModel)]="firstName" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <input id="forgetAnswer" placeholder="Last Name" name="lastName"  [(ngModel)]="lastName" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <input id="forgetAnswer"  placeholder="E mail address" [(ngModel)]="email" name="email" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                            <input id="forgetAnswer"  placeholder="Password"  name="password" [(ngModel)]="password" class="form-control"  type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="btnForget" class="btn btn-lg btn-primary btn-block btnForget"  type="submit">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

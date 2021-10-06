@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(credentials).subscribe(user =>{
       if(user.success){
-        this.router.navigateByUrl('/profile')
+        this.router.navigateByUrl('/dashboard')
         console.log(user.message)
       }
       else{

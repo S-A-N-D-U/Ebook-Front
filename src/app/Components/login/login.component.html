@@ -1,1 +1,44 @@
-<p>login works!</p>
+
+
+<body>
+    <section class="form my-4 mx-5">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <img src="assets/images/login.jpg" alt="hello" class="img-fluid">
+                </div>
+                <div class="col-lg-6 px-5 pt-5">
+                    <form (submit)="login()">
+
+                        <h2 class="heading1">Sign In</h2>
+                        <div class="form-row">
+                            
+                            <div class="col-lg-9">
+                                <input type="email"  class="form-control" 
+                                    placeholder="E mail address" [(ngModel)]="email" name="email" />
+                            </div>
+
+                            <div class="col-lg-9">
+                                <input type="password"  class="form-control" 
+                                    placeholder="Password"  name="password" [(ngModel)]="password" >
+                            </div>
+                            
+
+                             <div class="col-lg-9">
+                                <button type="submit" class="btn btn-dark btn-block ">Log in</button>
+                             </div>
+                    
+                            
+                            <div class="col-lg-9">
+                                <p class="small-text">Don't have an Account? <a [routerLink]="['/register']"><b>Sign Up</b></a></p>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<!-- </html> -->

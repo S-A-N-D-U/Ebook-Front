@@ -8,35 +8,30 @@ import { ValidationsService } from 'src/app/Services/validations.service'
 import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-add-admin',
+  templateUrl: './add-admin.component.html',
+  styleUrls: ['./add-admin.component.css']
 })
-export class RegisterComponent implements OnInit {
-
+export class AddAdminComponent implements OnInit {
   firstName:string
   lastName:string
   email:string
   password:string
   // role:string
-  role = [
-    {id: 1, name: "reader"},
-    {id: 2, name: "publisher"}
-    
-  
- ];
- selectedValue = "1";
-
-
+  role:string
+  approved:string
   constructor(public auth: AuthenticationService , private router: Router, private val:ValidationsService,private toastr: ToastrService) { }
 
-  register() {
+  ngOnInit(): void {
+  }
+  addAdmin() {
     const credentials= {
       firstName: this.firstName,
       lastName: this.lastName,
       email:this.email,
       password:this.password,
-      role: this.selectedValue
+      role: 'admin',
+      approved: 'true'
     }
 // console.log(credentials)
 
@@ -71,26 +66,13 @@ export class RegisterComponent implements OnInit {
       return false
     }
 
-    // if(!this.val.validatingTelephone(credentials.telephone)){
-    //   console.log(credentials.telephone)
-    //   console.log('invalid telephone number')
-    //   this.toastr.error("*** Please enter valid telephone number ***","",{
-    //     timeOut: 3000,
-    //     positionClass: 'toast-top-full-width',
-         
-    //   });
-      
-    //   return false
-    // }
 
-
-
-    this.auth.register(credentials).subscribe(user=> {
-      console.log(user + "vvvvvvvvvvvvvvvv")
+    this.auth.adminRegister(credentials).subscribe(user=> {
+      console.log(user + "vvvvvvvvv4444444")
       
       if(user.success){
-        this.router.navigateByUrl('/login')
-        this.toastr.success("registered successfully ","",{
+        this.router.navigateByUrl('/manageAdmins')
+        this.toastr.success("Admin added successfully ","",{
           timeOut: 2000,
           // positionClass: 'toast-top-full-width'
         });
@@ -104,8 +86,6 @@ export class RegisterComponent implements OnInit {
         console.log(user.message)
       }
     })
-  }
-  ngOnInit(): void {
   }
 
 }

@@ -77,9 +77,10 @@ export class AuthenticationService {
     }
   }
 
-  // registration for a publisher
+  // registration for publisher and reader
   public register (user: any): Observable<any> {
-    const base = this.http.post('https://techflare.herokuapp.com/users/publisherRegister',user)
+    console.log("bbbbbbbbbbbbbbbbbbbb")
+    const base = this.http.post('https://techflare.herokuapp.com/users/register',user)
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -92,6 +93,21 @@ export class AuthenticationService {
     return request
   }
 
+  // registration for admin
+  public adminRegister (user: any): Observable<any> {
+    console.log("bbbbbbbbbbb5555555")
+    const base = this.http.post('https://techflare.herokuapp.com/users/adminRegister',user)
+
+    const request = base.pipe(
+      map((data: TokenResponse) => {
+        if(data.token){
+          this.saveToken(data.token)
+        }
+        return data
+      })
+    )
+    return request
+  }
 
   // login for a user
   public login (user: any): Observable<any> {
@@ -145,5 +161,42 @@ export class AuthenticationService {
     }
   }  
 
+    // getting publisher requests
+    showpublishers():Observable<any> {
+      console.log("vvvvvvvvvvvv")
+      return this.http.get('https://techflare.herokuapp.com/users/approvedPublishers')
+    }
+  
+    // getting all the publisher requests
+    showpublisherReqs():Observable<any> {
+      console.log("vvvvvvvvvvvv")
+      return this.http.get('https://techflare.herokuapp.com/users/getApproved')
+    }
+
+  // remove publishers or reject publisher requests
+  deletePublisher(userId:any):Observable<any> {
+    console.log(userId+" ssssssssss")
+    return this.http.delete('https://techflare.herokuapp.com/users/remove/'+userId)
+  }
+
+  // approve publisher request
+  approvePublisher(userId:any,approve:any):Observable<any> {
+    const dataArr=[]
+    dataArr.push(approve)
+    console.log(dataArr+' eeeeee')
+    return this.http.patch('https://techflare.herokuapp.com/users/approvePublisher/'+userId,dataArr)
+  }
+
+  // getting admin list
+  showAdmins():Observable<any> {
+    console.log("vvvvvvvvvvvv")
+    return this.http.get('https://techflare.herokuapp.com/users/getAdmins')
+  }
+
+  // remove admins
+  deleteAdmin(userId:any):Observable<any> {
+    console.log(userId+" ssssssssss")
+    return this.http.delete('https://techflare.herokuapp.com/users/remove/'+userId)
+  }
 
 }
