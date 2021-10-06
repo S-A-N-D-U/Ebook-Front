@@ -34,7 +34,7 @@
             <i class="fas fa-users  fa-lg mr-3"></i>Chapter Requests
           </a></li>
 
-          <li class="nav-item" *ngIf="auth.isAdmin()"><a   class="nav-link text-white pl-4 pt-3 pb-3 sidebar-link">
+          <li class="nav-item" *ngIf="auth.isAdmin()"><a  [routerLink]="['/manageAdmins']" class="nav-link text-white pl-4 pt-3 pb-3 sidebar-link">
             <i class="fas fa-paste fa-lg mr-3"></i>Manage Admins
           </a></li>
           <li class="nav-item" *ngIf="auth.isAdmin()"><a [routerLink]="['/publisherList']" class="nav-link text-white pl-4 pt-3 pb-3 sidebar-link">

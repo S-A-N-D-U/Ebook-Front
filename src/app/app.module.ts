@@ -19,7 +19,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { PublisherListComponent } from './Components/publisher-list/publisher-list.component';
 import { PublisherRequestsComponent } from './Components/publisher-requests/publisher-requests.component';
-import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component'
+import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component';
+import { AddAdminComponent } from './Components/add-admin/add-admin.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.
     DashboardComponent,
     PublisherListComponent,
     PublisherRequestsComponent,
-    ManageAdminsComponent
+    ManageAdminsComponent,
+    AddAdminComponent
   ],
   imports: [
     BrowserModule,
