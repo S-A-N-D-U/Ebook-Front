@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
+// custom modules
+import { HomeModule } from './Components/home/home.module';
+import { BookModule } from './Components/book/book.module';
+
 // Services
 import { TestingService } from './Services/testing.service';
 import { AuthenticationService } from './Services/authentication.service';
@@ -37,6 +41,8 @@ import { AddAdminComponent } from './Components/add-admin/add-admin.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HomeModule,
+    BookModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot() 

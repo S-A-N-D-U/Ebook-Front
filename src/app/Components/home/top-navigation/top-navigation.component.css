@@ -1,0 +1,16 @@
+.float-left{
+    margin-left: 60vw;
+}
+
+nav {
+    background-color: #263238;
+}
+
+.font-light{
+    color: #ffffff;
+}
+
+img{
+    height: 50px;
+    width: 80px;
+}

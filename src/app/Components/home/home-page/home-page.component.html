@@ -1,0 +1,54 @@
+<div>
+    <app-top-navigation></app-top-navigation>
+    <div class="align-horizontal">
+        <app-side-navigation></app-side-navigation>
+        <div>
+            <div class="home-header">E-Books from Readers's Fantasy</div>
+            <app-carousel></app-carousel>
+            <div class="book-collection-wrapper">
+                <div class="book-catogory-header-wrapper" >
+                    <div class="category-title">All Books</div>
+                    <div class="seemore-text">See more ></div>
+                </div>
+                <hr />
+                <div class="book-row">
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                </div>
+            </div>
+            <div class="book-collection-wrapper">
+                <div class="book-catogory-header-wrapper" >
+                    <div class="category-title">Newly Addded</div>
+                    <div class="seemore-text">See more ></div>
+                </div>
+                <hr />
+                <div class="book-row">
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                </div>
+            </div>
+            <div class="book-collection-wrapper">
+                <div class="book-catogory-header-wrapper" >
+                    <div class="category-title">Top Rated</div>
+                    <div class="seemore-text">See more ></div>
+                </div>
+                <hr />
+                <div class="book-row">
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                    <app-book-card [book]="book"></app-book-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <app-carousel></app-carousel> -->
+    <app-footer></app-footer>
+</div>

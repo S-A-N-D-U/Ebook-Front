@@ -1,0 +1,37 @@
+<div class="side-nav">
+
+    <div class="category-heading">Shop e-books by category</div>
+
+    <hr />
+
+    <div class="category-wrapper">
+        <div class="category-title">New Releases</div>
+        <div class="category-item-wrapper">
+            <div class="category-item" *ngFor="let release of newReleases">
+                {{release}}
+            </div>
+        </div>
+    </div>
+
+    <div class="category-wrapper">
+        <div class="category-title">Find by language</div>
+        <div class="category-item-wrapper">
+            <div class="category-item" *ngFor="let language of languages">{{language}}</div>
+        </div>
+    </div>
+
+    <div class="category-wrapper">
+        <div class="category-title">Books</div>
+        <div class="category-item-wrapper">
+            <div class="category-item" *ngFor="let bookCategory of books">{{bookCategory}}</div>
+        </div>
+    </div>
+
+    <div class="category-wrapper">
+        <div class="category-title">Find by author</div>
+        <div class="category-item-wrapper">
+            <div class="category-item" *ngFor="let author of authors">{{author}}</div>
+        </div>
+    </div>
+
+</div>

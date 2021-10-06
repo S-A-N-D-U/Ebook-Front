@@ -1,0 +1,41 @@
+.home-header{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 2vh;
+}
+
+.book-collection-wrapper{
+    height: auto;
+    margin-bottom: 4vh;
+    margin-right: 5vw;
+    padding-left: 5vh;
+    padding-bottom: 4vh;
+}
+
+.book-catogory-header-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.category-title{
+    font-size: 1.4rem;
+    color: #37474f;
+}
+
+.seemore-text {
+    color: #0097a7;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.book-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.align-horizontal {
+    display: flex;
+    flex-direction: row;
+}
