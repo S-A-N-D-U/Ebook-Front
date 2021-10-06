@@ -1,0 +1,37 @@
+.side-nav{
+    width: 20vw;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+}
+
+.category-heading{
+    padding-left: 1vw;
+    padding-top: 1vh;
+    font-size: 1.2rem;
+    color: #37474f;
+}
+
+.category-title {
+    font-weight: 600;
+    color: #37474f;
+}
+
+.category-wrapper{
+    padding-left: 1vw;
+    padding-bottom: 4vh;
+}
+
+.category-item{
+    color: #757575;
+    transition: transform 1s;
+}
+
+.category-item:hover{
+    color: #0097a7;
+    cursor: pointer;
+    transition-delay: 0.5s;
+}
+
+.category-item-wrapper{
+    padding-top: 1vh;
+}
