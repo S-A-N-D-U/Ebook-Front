@@ -111,7 +111,7 @@ export class AuthenticationService {
 
   // login for a user
   public login (user: any): Observable<any> {
-    const base = this.http.post('https://techflare.herokuapp.com/users/login',user)
+    const base = this.http.post('https://techflare.herokuapp.com/users/login',user,{headers:{Skip_Interceptor:"true"}})
 
     const request = base.pipe(
       map((data: TokenResponse) => {

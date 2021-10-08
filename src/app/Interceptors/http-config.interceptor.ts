@@ -13,7 +13,14 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let Token = localStorage.getItem('userToken');
+
+    if(request.headers.has('Skip_Interceptor')){
+      let headers = request.headers.delete('Skip_Interceptor');
+      return next.handle(request.clone({headers}));
+    }
+
+    const Token = localStorage.getItem('userToken');
     return next.handle(request.clone({setHeaders: {Token}}));
+
   }
 }
