@@ -2004,6 +2004,39 @@ RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
 
 /***/ }),
 
+/***/ "./src/app/Interceptors/http-config.interceptor.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/Interceptors/http-config.interceptor.ts ***!
+  \*********************************************************/
+/*! exports provided: HttpConfigInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpConfigInterceptor", function() { return HttpConfigInterceptor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class HttpConfigInterceptor {
+    constructor() { }
+    intercept(request, next) {
+        if (request.headers.has('Skip_Interceptor')) {
+            let headers = request.headers.delete('Skip_Interceptor');
+            return next.handle(request.clone({ headers }));
+        }
+        const Token = localStorage.getItem('userToken');
+        return next.handle(request.clone({ setHeaders: { Token } }));
+    }
+}
+HttpConfigInterceptor.ɵfac = function HttpConfigInterceptor_Factory(t) { return new (t || HttpConfigInterceptor)(); };
+HttpConfigInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: HttpConfigInterceptor, factory: HttpConfigInterceptor.ɵfac });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HttpConfigInterceptor, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], function () { return []; }, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/Services/authentication.service.ts":
 /*!****************************************************!*\
   !*** ./src/app/Services/authentication.service.ts ***!
@@ -2088,7 +2121,7 @@ class AuthenticationService {
     }
     // login for a user
     login(user) {
-        const base = this.http.post('https://techflare.herokuapp.com/users/login', user);
+        const base = this.http.post('https://techflare.herokuapp.com/users/login', user, { headers: { Skip_Interceptor: "true" } });
         const request = base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((data) => {
             if (data.token) {
                 this.saveToken(data.token);
@@ -2392,6 +2425,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_publisher_requests_publisher_requests_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/publisher-requests/publisher-requests.component */ "./src/app/Components/publisher-requests/publisher-requests.component.ts");
 /* harmony import */ var _Components_manage_admins_manage_admins_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/manage-admins/manage-admins.component */ "./src/app/Components/manage-admins/manage-admins.component.ts");
 /* harmony import */ var _Components_add_admin_add_admin_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/add-admin/add-admin.component */ "./src/app/Components/add-admin/add-admin.component.ts");
+/* harmony import */ var _Interceptors_http_config_interceptor__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Interceptors/http-config.interceptor */ "./src/app/Interceptors/http-config.interceptor.ts");
 
 
 
@@ -2416,12 +2450,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// interceptors
+
 
 
 class AppModule {
 }
 AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_11__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_13__["ValidationsService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_8__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_8__["HashLocationStrategy"] }], imports: [[
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [
+        _Services_testing_service__WEBPACK_IMPORTED_MODULE_11__["TestingService"],
+        _Services_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"],
+        _Services_validations_service__WEBPACK_IMPORTED_MODULE_13__["ValidationsService"],
+        { provide: _angular_common__WEBPACK_IMPORTED_MODULE_8__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_8__["HashLocationStrategy"] },
+        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _Interceptors_http_config_interceptor__WEBPACK_IMPORTED_MODULE_21__["HttpConfigInterceptor"], multi: true }
+    ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
@@ -2468,7 +2510,13 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
                     ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrModule"].forRoot()
                 ],
-                providers: [_Services_testing_service__WEBPACK_IMPORTED_MODULE_11__["TestingService"], _Services_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"], _Services_validations_service__WEBPACK_IMPORTED_MODULE_13__["ValidationsService"], { provide: _angular_common__WEBPACK_IMPORTED_MODULE_8__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_8__["HashLocationStrategy"] }],
+                providers: [
+                    _Services_testing_service__WEBPACK_IMPORTED_MODULE_11__["TestingService"],
+                    _Services_authentication_service__WEBPACK_IMPORTED_MODULE_12__["AuthenticationService"],
+                    _Services_validations_service__WEBPACK_IMPORTED_MODULE_13__["ValidationsService"],
+                    { provide: _angular_common__WEBPACK_IMPORTED_MODULE_8__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_8__["HashLocationStrategy"] },
+                    { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _Interceptors_http_config_interceptor__WEBPACK_IMPORTED_MODULE_21__["HttpConfigInterceptor"], multi: true }
+                ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
             }]
     }], null, null); })();
