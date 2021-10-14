@@ -28,6 +28,7 @@ import { AddAdminComponent } from './Components/add-admin/add-admin.component';
 
 // interceptors
 import { HttpConfigInterceptor } from './Interceptors/http-config.interceptor';
+import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coins.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpConfigInterceptor } from './Interceptors/http-config.interceptor';
     PublisherListComponent,
     PublisherRequestsComponent,
     ManageAdminsComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    PurchaseCoinsComponent
   ],
   imports: [
     BrowserModule,
