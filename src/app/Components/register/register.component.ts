@@ -87,7 +87,6 @@ export class RegisterComponent implements OnInit {
 
     this.auth.register(credentials).subscribe(user=> {
       console.log(user + "vvvvvvvvvvvvvvvv")
-      
       if(user.success){
         this.router.navigateByUrl('/login')
         this.toastr.success("registered successfully ","",{

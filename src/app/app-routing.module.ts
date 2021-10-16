@@ -7,6 +7,7 @@ import { PublisherListComponent } from './Components/publisher-list/publisher-li
 import { PublisherRequestsComponent } from './Components/publisher-requests/publisher-requests.component';
 import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component';
 import { AddAdminComponent } from './Components/add-admin/add-admin.component';
+import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coins.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'publisherList' , component:PublisherListComponent},
   { path: 'publisherRequests' , component:PublisherRequestsComponent},
   { path: 'manageAdmins' , component:ManageAdminsComponent},
-  { path: 'addAdmin' , component:AddAdminComponent} 
+  { path: 'addAdmin' , component:AddAdminComponent},
+  { path: 'manageCoins' , component:PurchaseCoinsComponent} 
 ];
 
 @NgModule({

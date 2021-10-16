@@ -82,15 +82,15 @@ export class AuthenticationService {
     console.log("bbbbbbbbbbbbbbbbbbbb")
     const base = this.http.post('https://techflare.herokuapp.com/users/register',user)
 
-    const request = base.pipe(
-      map((data: TokenResponse) => {
-        if(data.token){
-          this.saveToken(data.token)
-        }
-        return data
-      })
-    )
-    return request
+    // const request = base.pipe(
+    //   map((data: TokenResponse) => {
+    //     if(data.token){
+    //       this.saveToken(data.token)
+    //     }
+    //     return data
+    //   })
+    // )
+    return base
   }
 
   // registration for admin
@@ -111,6 +111,7 @@ export class AuthenticationService {
 
   // login for a user
   public login (user: any): Observable<any> {
+    console.log('asasasasa')
     const base = this.http.post('https://techflare.herokuapp.com/users/login',user,{headers:{Skip_Interceptor:"true"}})
 
     const request = base.pipe(
