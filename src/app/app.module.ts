@@ -16,6 +16,7 @@ import { BookModule } from './Components/book/book.module';
 import { TestingService } from './Services/testing.service';
 import { AuthenticationService } from './Services/authentication.service';
 import { ValidationsService } from './Services/validations.service';
+import { PaymentService } from './Services/payment.service'
 
 // components
 import { LoginComponent } from './Components/login/login.component';
@@ -25,10 +26,13 @@ import { PublisherListComponent } from './Components/publisher-list/publisher-li
 import { PublisherRequestsComponent } from './Components/publisher-requests/publisher-requests.component';
 import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component';
 import { AddAdminComponent } from './Components/add-admin/add-admin.component';
+import { MyPaymentsComponent } from './Components/my-payments/my-payments.component';
+import { AllPaymentsComponent } from './Components/all-payments/all-payments.component';
 
 // interceptors
 import { HttpConfigInterceptor } from './Interceptors/http-config.interceptor';
 import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coins.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coi
     PublisherRequestsComponent,
     ManageAdminsComponent,
     AddAdminComponent,
-    PurchaseCoinsComponent
+    PurchaseCoinsComponent,
+    MyPaymentsComponent,
+    AllPaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,7 @@ import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coi
     TestingService ,
     AuthenticationService ,
     ValidationsService ,
+    PaymentService,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true}
   ],
