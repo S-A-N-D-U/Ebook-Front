@@ -163,13 +163,13 @@ export class AuthenticationService {
   }  
 
     // getting publisher requests
-    showpublishers():Observable<any> {
+  showpublishers():Observable<any> {
       console.log("vvvvvvvvvvvv")
       return this.http.get('https://techflare.herokuapp.com/users/approvedPublishers')
     }
   
     // getting all the publisher requests
-    showpublisherReqs():Observable<any> {
+  showpublisherReqs():Observable<any> {
       console.log("vvvvvvvvvvvv")
       return this.http.get('https://techflare.herokuapp.com/users/getApproved')
     }

@@ -8,6 +8,8 @@ import { PublisherRequestsComponent } from './Components/publisher-requests/publ
 import { ManageAdminsComponent } from './Components/manage-admins/manage-admins.component';
 import { AddAdminComponent } from './Components/add-admin/add-admin.component';
 import { PurchaseCoinsComponent } from './Components/purchase-coins/purchase-coins.component';
+import { MyPaymentsComponent } from './Components/my-payments/my-payments.component';
+import { AllPaymentsComponent } from './Components/all-payments/all-payments.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'publisherRequests' , component:PublisherRequestsComponent},
   { path: 'manageAdmins' , component:ManageAdminsComponent},
   { path: 'addAdmin' , component:AddAdminComponent},
-  { path: 'manageCoins' , component:PurchaseCoinsComponent} 
+  { path: 'manageCoins' , component:PurchaseCoinsComponent},
+  { path: 'myPayments' , component:MyPaymentsComponent},
+  { path: 'allPayments' , component:AllPaymentsComponent}
 ];
 
 @NgModule({
